@@ -1,0 +1,22 @@
+<%- | String   $hostname,
+      String   $port,
+      String   $token,
+      String   $file_ext,
+      String   $check_dir,
+| -%>
+
+HOST="<%= $hostname %>"
+PORT="<%= $port %>"
+TOKEN="<%= $token %>"
+FILE_EXT='<%= $file_ext %>'
+CHECK_DIR='<%= $check_dir %>'
+
+NEWEST_FILE="`ls -t ${CHECK_DIR}/${FILE_EXT} | head -1`"
+TIMESTAMP="`stat -c %Y ${NEWEST_FILE}`"
+TIME_NOW=`date +%s`
+AGE=$((${TIME_NOW} - ${TIMESTAMP}))
+
+AGE_HOURS=$((${AGE}/60/60))
+SIZE="`du -m ${NEWEST_FILE} | awk '{print $1;}'`"
+
+wget -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>Age (Hours)</channel><value>${AGE_HOURS}</value></result><result><channel>Size (MB)</channel><value>${SIZE}</value></result><text>${NEWEST_FILE} details</text></prtg>"
