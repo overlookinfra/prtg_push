@@ -1,0 +1,16 @@
+<%- | String   $hostname,
+      String   $port,
+      String   $token,
+      String   $command,
+      String   $friendly_name,
+| -%>
+
+HOST="<%= $hostname %>"
+PORT="<%= $port %>"
+TOKEN="<%= $token %>"
+COMMAND="<%= $command %>"
+OUTPUT=$(<%= $command %>)
+FRIENDLY="<%= $friendly_name %>"
+
+wget -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>${FRIENDLY}</channel><value>${OUTPUT}</value></result><text>${COMMAND}</text></prtg>"
+
