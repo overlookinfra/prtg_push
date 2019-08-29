@@ -1,3 +1,25 @@
+# @summary
+#   Creates a cron job to execute a shell script to check if an arbitrary service is running,
+#   then pushes that information to PRTG.
+#
+# @param cron_hour 
+#   The hour to run the cron job.
+#
+# @param cron_minute
+#   The minute to run the cron job.
+#
+# @param service_name
+#   Specifies the name of the service to check.
+#
+# @param hostname
+#   Configures the hostname of the PRTG server.
+#
+# @param port
+#   The network port number of the PRTG HTTP push sensor.
+#
+# @param token
+#   Specifies the PRTG identification token to use for this sensor.
+#
 define prtg_push::service_check (
   $cron_hour    = '*',
   $cron_minute  = '*',

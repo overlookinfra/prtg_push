@@ -1,3 +1,28 @@
+# @summary
+#   Creates a cron job to execute a shell script to check for the latest file of a given 
+#   type in a given directory, then pushes that information to PRTG.
+#
+# @param cron_hour 
+#   The hour to run the cron job.
+#
+# @param cron_minute
+#   The minute to run the cron job.
+#
+# @param file_ext
+#   Specifies the file extension to check.
+#
+# @param check_dir
+#   The directory to check.
+#
+# @param hostname
+#   Configures the hostname of the PRTG server.
+#
+# @param port
+#   The network port number of the PRTG HTTP push sensor.
+#
+# @param token
+#   Specifies the PRTG identification token to use for this sensor.
+#
 define prtg_push::newest_file (
   $cron_hour    = '*',
   $cron_minute  = '*',
