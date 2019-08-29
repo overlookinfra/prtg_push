@@ -1,11 +1,11 @@
 define prtg_push::newest_file (
-  $cron_hour    = '*',
-  $cron_minute  = '*',
-  $file_ext = '*.*',
-  $check_dir,
-  $hostname,
-  $port,
-  $token,
+  String[1] $check_dir,
+  String[1] $hostname,
+  String[2] $port,
+  String[1] $token,
+  $cron_hour       = '*',
+  $cron_minute     = '*',
+  String $file_ext = '*.*',
 ) {
   file {"/opt/prtg_push/newest_file_${title}.sh":
     ensure   => present,

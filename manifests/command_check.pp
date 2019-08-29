@@ -1,10 +1,10 @@
 define prtg_push::command_check (
-  $cron_hour    = '*',
-  $cron_minute  = '*',
-  $command,
-  $hostname,
-  $port,
-  $token,
+  String[1] $command,
+  String[1] $hostname,
+  String[2] $port,
+  String[1] $token,
+  $cron_hour   = '*',
+  $cron_minute = '*',
 ) {
   file {"/opt/prtg_push/command_${title}.sh":
     ensure   => present,
