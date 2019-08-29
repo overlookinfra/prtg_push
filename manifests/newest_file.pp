@@ -7,23 +7,23 @@ define prtg_push::newest_file (
   $port,
   $token,
 ) {
-  file {"/opt/prtg_push/newest_file_${title}.sh":
-    ensure   => present,
-    mode     => '700',
-    content  => epp('prtg_push/newest_file.epp', {
-                  file_ext   	 => $file_ext,
-                  check_dir      => $check_dir,
-                  hostname       => $hostname,
-                  port           => $port,
-                  token          => $token,
+  file { "/opt/prtg_push/newest_file_${title}.sh":
+    ensure  => present,
+    mode    => '0700',
+    content => epp('prtg_push/newest_file.epp', {
+                  file_ext  => $file_ext,
+                  check_dir => $check_dir,
+                  hostname  => $hostname,
+                  port      => $port,
+                  token     => $token,
                 }),
-                
+
   }
 
   cron { "prtg_push_newest_file_${title}":
-    command  => "bash -x /opt/prtg_push/newest_file_${title}.sh",
-    user     => 'root',
-    hour     => $cron_hour,
-    minute   => $cron_minute,
+    command => "bash -x /opt/prtg_push/newest_file_${title}.sh",
+    user    => 'root',
+    hour    => $cron_hour,
+    minute  => $cron_minute,
   }
 }
