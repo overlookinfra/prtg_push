@@ -1,6 +1,6 @@
 class prtg_push {
   file {'/opt/prtg_push':
-    ensure  => directory,
-    purge   => true,
+    ensure => directory,
+    purge  => true,
   }
 }
