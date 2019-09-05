@@ -1,3 +1,24 @@
+# @summary
+#   This type creates a cron job to run a shell script that executes an arbitrary command.
+#
+# @param cron_hour 
+#   The hour to run the cron job.
+#
+# @param cron_minute
+#   The minute to run the cron job.
+#
+# @param command
+#   Specifies the command to run on the *nix machine.
+#
+# @param hostname
+#   Configures the hostname of the PRTG server.
+#
+# @param port
+#   The network port number of the PRTG HTTP push sensor.
+#
+# @param token
+#   Specifies the PRTG identification token to use for this sensor.
+#
 define prtg_push::command_check (
   $cron_hour    = '*',
   $cron_minute  = '*',
