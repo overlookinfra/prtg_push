@@ -2,23 +2,17 @@
   "name": "mhashizume-prtg_push",
   "version": "0.1.0",
   "author": "JT Tripathy",
-  "summary": "",
+  "summary": "Manages PRTG HTTP push sensors",
   "license": "MIT",
-  "source": "",
+  "source": "https://github.com/puppetlabs/prtg_push",
   "dependencies": [
 
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "Debian",
-      "operatingsystemrelease": [
-        "9"
-      ]
-    },
-    {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "18.04"
+        "16.04"
       ]
     }
   ],

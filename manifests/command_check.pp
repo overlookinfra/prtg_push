@@ -20,12 +20,12 @@
 #   Specifies the PRTG identification token to use for this sensor.
 #
 define prtg_push::command_check (
-  $cron_hour    = '*',
-  $cron_minute  = '*',
   $command,
   $hostname,
   $port,
   $token,
+  $cron_hour    = '*',
+  $cron_minute  = '*',
 ) {
   file { "/opt/prtg_push/command_${title}.sh":
     ensure  => present,

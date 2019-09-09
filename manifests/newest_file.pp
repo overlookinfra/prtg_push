@@ -24,13 +24,13 @@
 #   Specifies the PRTG identification token to use for this sensor.
 #
 define prtg_push::newest_file (
-  $cron_hour    = '*',
-  $cron_minute  = '*',
-  $file_ext = '*.*',
   $check_dir,
   $hostname,
   $port,
   $token,
+  $cron_hour    = '*',
+  $cron_minute  = '*',
+  $file_ext = '*.*',
 ) {
   file { "/opt/prtg_push/newest_file_${title}.sh":
     ensure  => present,

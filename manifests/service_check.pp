@@ -21,12 +21,12 @@
 #   Specifies the PRTG identification token to use for this sensor.
 #
 define prtg_push::service_check (
-  $cron_hour    = '*',
-  $cron_minute  = '*',
-  $service_name = $title,
   $hostname,
   $port,
   $token,
+  $cron_hour    = '*',
+  $cron_minute  = '*',
+  $service_name = $title,
 ) {
   file { "/opt/prtg_push/service_${title}.sh":
     ensure  => present,
