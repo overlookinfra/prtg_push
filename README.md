@@ -23,7 +23,7 @@ Setup with prtg_push is minimal; install the module as you would any other modul
 You can purge unmanaged cron jobs by including something like the following in your Puppet code:
 
 ```puppet
-resources {'cron':
+resources { 'cron':
   purge => true,
 }
 ```
