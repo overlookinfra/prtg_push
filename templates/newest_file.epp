@@ -19,4 +19,4 @@ AGE=$((${TIME_NOW} - ${TIMESTAMP}))
 AGE_HOURS=$((${AGE}/60/60))
 SIZE="`du -m ${NEWEST_FILE} | awk '{print $1;}'`"
 
-wget -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>Age (Hours)</channel><value>${AGE_HOURS}</value></result><result><channel>Size (MB)</channel><value>${SIZE}</value></result><text>${NEWEST_FILE} details</text></prtg>"
+wget --secure-protocol=TLSv1_1 -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>Age (Hours)</channel><value>${AGE_HOURS}</value></result><result><channel>Size (MB)</channel><value>${SIZE}</value></result><text>${NEWEST_FILE} details</text></prtg>"
