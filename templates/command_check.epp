@@ -12,5 +12,5 @@ COMMAND="<%= $command %>"
 OUTPUT=$(<%= $command %>)
 FRIENDLY="<%= $friendly_name %>"
 
-wget -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>${FRIENDLY}</channel><value>${OUTPUT}</value></result><text>${COMMAND}</text></prtg>"
+wget --secure-protocol=TLSv1_1 -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>${FRIENDLY}</channel><value>${OUTPUT}</value></result><text>${COMMAND}</text></prtg>"
 
