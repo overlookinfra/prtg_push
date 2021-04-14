@@ -12,7 +12,7 @@ TOKEN="<%= $token %>"
 SERVICE="<%= $service_name %>"
 FRIENDLY="<%= $friendly_name %>"
 
-if (( $(ps -ef | grep -v grep | grep "${SERVICE}" | wc -l) > 0 ))
+if pgrep -f "${SERVICE}" ;
   then
     # Send response to PRTG that the service is running.
     wget -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>${FRIENDLY} status</channel><value>1</value></result><text>Service: ${FRIENDLY} is running!</text></prtg>"
