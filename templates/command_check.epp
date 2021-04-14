@@ -4,6 +4,7 @@
       String   $command,
       String   $friendly_name,
 | -%>
+#!/bin/bash
 
 HOST="<%= $hostname %>"
 PORT="<%= $port %>"

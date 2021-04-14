@@ -4,6 +4,7 @@
       String   $file_ext,
       String   $check_dir,
 | -%>
+#!/bin/bash
 
 HOST="<%= $hostname %>"
 PORT="<%= $port %>"
