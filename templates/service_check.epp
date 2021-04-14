@@ -15,8 +15,8 @@ FRIENDLY="<%= $friendly_name %>"
 if (( $(ps -ef | grep -v grep | grep "${SERVICE}" | wc -l) > 0 ))
   then
     # Send response to PRTG that the service is running.
-    wget --secure-protocol=TLSv1_1 -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>${FRIENDLY} status</channel><value>1</value></result><text>Service: ${FRIENDLY} is running!</text></prtg>"
+    wget -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>${FRIENDLY} status</channel><value>1</value></result><text>Service: ${FRIENDLY} is running!</text></prtg>"
   else
     # Send response to PRTG that the service is not running.
-    wget --secure-protocol=TLSv1_1 -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>${FRIENDLY} status</channel><value>0</value></result><text>Service: ${FRIENDLY} is down</text></prtg>"
+    wget -O/dev/null "https://${HOST}:${PORT}/${TOKEN}?content=<prtg><result><channel>${FRIENDLY} status</channel><value>0</value></result><text>Service: ${FRIENDLY} is down</text></prtg>"
 fi
